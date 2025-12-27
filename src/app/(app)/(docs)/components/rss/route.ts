@@ -3,8 +3,8 @@ import { getPostsByCategory } from "@/features/blog/data/posts";
 
 export const dynamic = "force-static";
 
-export function GET() {
-  const allPosts = getPostsByCategory("components");
+export async function GET() {
+  const allPosts = await getPostsByCategory("components");
 
   const itemsXml = allPosts
     .map(

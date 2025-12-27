@@ -208,4 +208,37 @@ export const examples: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "encrypted-text-demo-2",
+    type: "registry:example",
+    registryDependencies: ["@ncdai/encrypted-text"],
+    files: [
+      {
+        path: "examples/encrypted-text-demo-2.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "text-generate-effect-demo",
+    type: "registry:example",
+    registryDependencies: ["@ncdai/text-generate-effect"],
+    files: [
+      {
+        path: "examples/text-generate-effect-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "file-upload-demo",
+    type: "registry:example",
+    registryDependencies: ["@ncdai/file-upload"],
+    files: [
+      {
+        path: "examples/file-upload-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

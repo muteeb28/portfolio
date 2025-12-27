@@ -23,8 +23,8 @@ const MobileNav = dynamic(() =>
   import("@/components/mobile-nav").then((mod) => mod.MobileNav)
 );
 
-export function SiteHeader() {
-  const posts = getAllPosts();
+export async function SiteHeader() {
+  const posts = await getAllPosts();
 
   return (
     <SiteHeaderWrapper

@@ -25,7 +25,7 @@ export const MAIN_NAV: NavItem[] = [
   },
   {
     title: "Blog",
-    href: "/blog",
+    href: "https://muteeb.hashnode.dev/",
   },
   // {
   //   title: "Sponsors",
@@ -33,11 +33,11 @@ export const MAIN_NAV: NavItem[] = [
   // },
 ];
 
-export const GITHUB_USERNAME = "ncdai";
-export const SOURCE_CODE_GITHUB_REPO = "ncdai/chanhdai.com";
-export const SOURCE_CODE_GITHUB_URL = "https://github.com/ncdai/chanhdai.com";
+export const GITHUB_USERNAME = "muteeb28";
+export const SOURCE_CODE_GITHUB_REPO = "muteeb28/chanhdai.com"; // Assuming fork name or just placeholder
+export const SOURCE_CODE_GITHUB_URL = "https://github.com/muteeb28";
 
-export const SPONSORSHIP_URL = "https://github.com/sponsors/ncdai";
+export const SPONSORSHIP_URL = ""; // "https://github.com/sponsors/ncdai";
 
 export const UTM_PARAMS = {
   utm_source: "chanhdai.com",

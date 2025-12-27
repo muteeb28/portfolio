@@ -1,10 +1,13 @@
 import {
   BriefcaseBusinessIcon,
+  CodeIcon,
   FileIcon,
   GalleryHorizontalEndIcon,
   GalleryVerticalIcon,
+  MessageSquareIcon,
   MoonStarIcon,
   TerminalSquareIcon,
+  UploadIcon,
   ZapIcon,
 } from "lucide-react";
 
@@ -424,6 +427,15 @@ export function ComponentIcon({ variant, ...props }: ComponentIconProps) {
           />
         </svg>
       );
+
+    case "code":
+      return <CodeIcon {...props} />;
+
+    case "message-square":
+      return <MessageSquareIcon {...props} />;
+
+    case "upload":
+      return <UploadIcon {...props} />;
 
     default:
       return <Icons.react {...props} />;

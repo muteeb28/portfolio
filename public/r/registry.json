@@ -375,6 +375,56 @@
       }
     },
     {
+      "name": "encrypted-text",
+      "type": "registry:component",
+      "title": "Encrypted Text",
+      "author": "Muteeb Masoodi",
+      "description": "A Matrix-like text reveal effect where characters scramble before settling.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/encrypted-text.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "text-generate-effect",
+      "type": "registry:component",
+      "title": "Text Generate Effect",
+      "author": "Muteeb Masoodi",
+      "description": "A cool text effect that fades in words one by one.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/text-generate-effect.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "file-upload",
+      "type": "registry:component",
+      "title": "File Upload",
+      "author": "Muteeb Masoodi",
+      "description": "A drag and drop file upload component with visual feedback.",
+      "dependencies": [
+        "motion",
+        "@tabler/icons-react",
+        "react-dropzone"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/file-upload.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "wheel-picker-block-01",
       "type": "registry:block",
       "registryDependencies": [

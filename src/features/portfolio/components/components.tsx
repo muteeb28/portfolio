@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils";
 
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel";
 
-export function Components() {
-  const posts = getPostsByCategory("components");
+export async function Components() {
+  const posts = await getPostsByCategory("components");
 
   return (
     <Panel id="components">

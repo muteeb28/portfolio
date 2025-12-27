@@ -297,4 +297,46 @@ export const components: Registry["items"] = [
       },
     },
   },
+  {
+    name: "encrypted-text",
+    type: "registry:component",
+    title: "Encrypted Text",
+    description: "A Matrix-like text reveal effect where characters scramble before settling.",
+    author: "Muteeb Masoodi",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "src/components/ui/encrypted-text.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
+  {
+    name: "text-generate-effect",
+    type: "registry:component",
+    title: "Text Generate Effect",
+    description: "A cool text effect that fades in words one by one.",
+    author: "Muteeb Masoodi",
+    dependencies: ["motion"],
+    files: [
+      {
+        path: "src/components/ui/text-generate-effect.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
+  {
+    name: "file-upload",
+    type: "registry:component",
+    title: "File Upload",
+    description: "A drag and drop file upload component with visual feedback.",
+    author: "Muteeb Masoodi",
+    dependencies: ["motion", "@tabler/icons-react", "react-dropzone"],
+    files: [
+      {
+        path: "src/components/ui/file-upload.tsx",
+        type: "registry:component",
+      },
+    ],
+  },
 ];

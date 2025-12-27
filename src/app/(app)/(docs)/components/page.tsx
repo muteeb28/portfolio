@@ -33,8 +33,8 @@ const componentsJSON = `\`\`\`json title="components.json" showLineNumbers {3}
 }
 \`\`\``;
 
-export default function Page() {
-  const posts = getPostsByCategory("components");
+export default async function Page() {
+  const posts = await getPostsByCategory("components");
 
   return (
     <div className="min-h-svh">

@@ -1,9 +1,12 @@
 import { SITE_INFO } from "@/config/site";
 import { getAllPosts } from "@/features/blog/data/posts";
 
-const allPosts = getAllPosts();
+export const dynamic = "force-static";
 
-const content = `# chanhdai.com
+export async function GET() {
+  const allPosts = await getAllPosts();
+
+  const content = `# chanhdai.com
 
 > A minimal, pixel-perfect dev portfolio, component registry, and blog to showcase my work as a Design Engineer.
 
@@ -18,9 +21,6 @@ const content = `# chanhdai.com
 ${allPosts.map((item) => `- [${item.metadata.title}](${SITE_INFO.url}/blog/${item.slug}.mdx): ${item.metadata.description}`).join("\n")}
 `;
 
-export const dynamic = "force-static";
-
-export async function GET() {
   return new Response(content, {
     headers: {
       "Content-Type": "text/markdown;charset=utf-8",

@@ -8,8 +8,8 @@ import { getAllPosts } from "@/features/blog/data/posts";
 
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "./panel";
 
-export function Blog() {
-  const allPosts = getAllPosts();
+export async function Blog() {
+  const allPosts = await getAllPosts();
 
   return (
     <Panel id="blog">
@@ -35,10 +35,10 @@ export function Blog() {
 
       <div className="screen-line-before flex justify-center py-2">
         <Button variant="default" asChild>
-          <Link href="/blog">
+          <a href="https://muteeb.hashnode.dev/" target="_blank" rel="noopener noreferrer">
             All Posts
             <ArrowRightIcon />
-          </Link>
+          </a>
         </Button>
       </div>
     </Panel>

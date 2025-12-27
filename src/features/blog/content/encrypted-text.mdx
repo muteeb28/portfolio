@@ -1,0 +1,28 @@
+---
+title: Encrypted Text
+description: A Matrix-like text reveal effect where characters scramble before settling.
+category: components
+icon: code
+createdAt: 2025-12-27
+updatedAt: 2025-12-27
+---
+
+<ComponentPreview
+  name="encrypted-text-demo-2"
+  className="p-10"
+/>
+
+## Usage
+
+```tsx
+import { EncryptedText } from "@/components/ui/encrypted-text";
+```
+
+```tsx
+<EncryptedText
+  text="Welcome to the Matrix, Neo."
+  encryptedClassName="text-neutral-500"
+  revealedClassName="dark:text-white text-black"
+  revealDelayMs={50}
+/>
+```

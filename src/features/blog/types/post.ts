@@ -7,6 +7,11 @@ export type PostMetadata = {
    */
   image?: string;
   /**
+   * External URL for the post (e.g. Hashnode link).
+   * If present, clicking the post will open this URL in a new tab.
+   */
+  externalUrl?: string;
+  /**
    * Category identifier/slug used for filtering (see getPostsByCategory).
    */
   category?: string;

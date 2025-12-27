@@ -6,10 +6,18 @@ export function ChanhDaiMark(props: React.ComponentProps<"svg">) {
       viewBox="0 0 512 256"
       {...props}
     >
-      <path
+      <text
+        x="50%"
+        y="50%"
+        dominantBaseline="middle"
+        textAnchor="middle"
         fill="currentColor"
-        d="M192 256H64v-64h128v64ZM448 64H320v128h128v64H256V0h192v64ZM64 192H0V64h64v128ZM512 192h-64V64h64v128ZM192 64H64V0h128v64Z"
-      />
+        fontSize="200"
+        fontWeight="bold"
+        fontFamily="sans-serif"
+      >
+        MM
+      </text>
     </svg>
   );
 }

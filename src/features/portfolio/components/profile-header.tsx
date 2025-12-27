@@ -18,24 +18,12 @@ export function ProfileHeader() {
         </div>
 
         <a
-          href="https://vietnam.gov.vn/about-viet-nam"
+          href="https://www.canada.ca/en.html"
           target="_blank"
           rel="noreferrer"
-          className="absolute top-0 -left-px"
+          className="absolute top-0 -left-px no-underline"
         >
-          {/* Flag of Viet Nam */}
-          <svg
-            className="h-8 sm:h-9"
-            viewBox="0 0 30 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Flag of Viet Nam</title>
-            <rect width="30" height="20" fill="#F00" />
-            <polygon
-              points="15,4 11.47,14.85 20.71,8.15 9.29,8.15 18.53,14.85"
-              fill="#FFEB00"
-            />
-          </svg>
+          <span className="text-3xl leading-none">🍁</span>
         </a>
       </div>
 

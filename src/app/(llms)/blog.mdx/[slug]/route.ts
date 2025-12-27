@@ -4,7 +4,7 @@ import { getAllPosts } from "@/features/blog/data/posts";
 import { getLLMText } from "@/features/blog/lib/get-llm-text";
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -17,7 +17,7 @@ export async function GET(
 ) {
   const { slug } = await params;
 
-  const allPosts = getAllPosts();
+  const allPosts = await getAllPosts();
   const post = allPosts.find((post) => post.slug === slug);
 
   if (!post) {

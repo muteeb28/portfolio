@@ -14,9 +14,16 @@ export function PostItem({
   post: Post;
   shouldPreloadImage?: boolean;
 }) {
+  const Component = post.metadata.externalUrl ? "a" : Link;
+  const href = post.metadata.externalUrl || `/blog/${post.slug}`;
+  const target = post.metadata.externalUrl ? "_blank" : undefined;
+  const rel = post.metadata.externalUrl ? "noopener noreferrer" : undefined;
+
   return (
-    <Link
-      href={`/blog/${post.slug}`}
+    <Component
+      href={href}
+      target={target}
+      rel={rel}
       className={cn(
         "group/post flex flex-col gap-2 p-2",
         "max-sm:screen-line-before max-sm:screen-line-after",
@@ -54,6 +61,11 @@ export function PostItem({
               <span className="sr-only">New</span>
             </span>
           )}
+          {post.metadata.externalUrl && (
+            <span className="ml-2 inline-block text-xs text-muted-foreground align-middle">
+              ↗
+            </span>
+          )}
         </h3>
 
         <dl>
@@ -65,6 +77,6 @@ export function PostItem({
           </dd>
         </dl>
       </div>
-    </Link>
+    </Component>
   );
 }

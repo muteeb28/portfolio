@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-generate-effect",
+  "type": "registry:component",
+  "title": "Text Generate Effect",
+  "author": "Muteeb Masoodi",
+  "description": "A cool text effect that fades in words one by one.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/text-generate-effect.tsx",
+      "content": "\"use client\";\r\nimport { useEffect } from \"react\";\r\nimport { motion, stagger, useAnimate } from \"motion/react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nexport const TextGenerateEffect = ({\r\n    words,\r\n    className,\r\n    filter = true,\r\n    duration = 0.5,\r\n}: {\r\n    words: string;\r\n    className?: string;\r\n    filter?: boolean;\r\n    duration?: number;\r\n}) => {\r\n    const [scope, animate] = useAnimate();\r\n    let wordsArray = words.split(\" \");\r\n    useEffect(() => {\r\n        animate(\r\n            \"span\",\r\n            {\r\n                opacity: 1,\r\n                filter: filter ? \"blur(0px)\" : \"none\",\r\n            },\r\n            {\r\n                duration: duration ? duration : 1,\r\n                delay: stagger(0.2),\r\n            }\r\n        );\r\n    }, [scope.current]);\r\n\r\n    const renderWords = () => {\r\n        return (\r\n            <motion.div ref={scope}>\r\n                {wordsArray.map((word, idx) => {\r\n                    return (\r\n                        <motion.span\r\n                            key={word + idx}\r\n                            className=\"dark:text-white text-black opacity-0\"\r\n                            style={{\r\n                                filter: filter ? \"blur(10px)\" : \"none\",\r\n                            }}\r\n                        >\r\n                            {word}{\" \"}\r\n                        </motion.span>\r\n                    );\r\n                })}\r\n            </motion.div>\r\n        );\r\n    };\r\n\r\n    return (\r\n        <div className={cn(\"font-bold\", className)}>\r\n            <div className=\"mt-4\">\r\n                <div className=\" dark:text-white text-black text-2xl leading-snug tracking-wide\">\r\n                    {renderWords()}\r\n                </div>\r\n            </div>\r\n        </div>\r\n    );\r\n};\r\n",
+      "type": "registry:component"
+    }
+  ]
+}

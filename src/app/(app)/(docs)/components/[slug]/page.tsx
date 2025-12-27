@@ -30,7 +30,7 @@ import { USER } from "@/features/portfolio/data/user";
 import { cn } from "@/lib/utils";
 
 export async function generateStaticParams() {
-  const posts = getPostsByCategory("components");
+  const posts = await getPostsByCategory("components");
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -42,7 +42,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const slug = (await params).slug;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return notFound();
@@ -107,7 +107,7 @@ export default async function Page({
   }>;
 }) {
   const slug = (await params).slug;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -119,14 +119,15 @@ export default async function Page({
 
   const toc = getTableOfContents(post.content);
 
-  const allPosts = getPostsByCategory("components")
+  const componentPosts = await getPostsByCategory("components");
+  const allPosts = componentPosts
     .slice()
     .sort((a, b) =>
       a.metadata.title.localeCompare(b.metadata.title, "en", {
         sensitivity: "base",
       })
     );
-  const { previous, next } = findNeighbour(allPosts, slug);
+  const { previous, next } = await findNeighbour(allPosts, slug);
 
   return (
     <>

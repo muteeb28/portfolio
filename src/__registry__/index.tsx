@@ -139,6 +139,33 @@ export const Index: Record<string, any> = {
       type: "registry:component",
     }],
   },
+  "encrypted-text": {
+    name: "encrypted-text",
+    description: "A Matrix-like text reveal effect where characters scramble before settling.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/src/components/ui/encrypted-text.tsx",
+      type: "registry:component",
+    }],
+  },
+  "text-generate-effect": {
+    name: "text-generate-effect",
+    description: "A cool text effect that fades in words one by one.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/src/components/ui/text-generate-effect.tsx",
+      type: "registry:component",
+    }],
+  },
+  "file-upload": {
+    name: "file-upload",
+    description: "A drag and drop file upload component with visual feedback.",
+    type: "registry:component",
+    files: [{
+      path: "src/registry/src/components/ui/file-upload.tsx",
+      type: "registry:component",
+    }],
+  },
   "wheel-picker-block-01": {
     name: "wheel-picker-block-01",
     description: "",
@@ -444,5 +471,35 @@ export const Index: Record<string, any> = {
       type: "registry:example",
     }],
     component: React.lazy(() => import("@/registry/examples/scroll-fade-effect-demo-04.tsx")),
+  },
+  "encrypted-text-demo-2": {
+    name: "encrypted-text-demo-2",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/encrypted-text-demo-2.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/encrypted-text-demo-2.tsx")),
+  },
+  "text-generate-effect-demo": {
+    name: "text-generate-effect-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/text-generate-effect-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/text-generate-effect-demo.tsx")),
+  },
+  "file-upload-demo": {
+    name: "file-upload-demo",
+    description: "",
+    type: "registry:example",
+    files: [{
+      path: "src/registry/examples/file-upload-demo.tsx",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/file-upload-demo.tsx")),
   },
 }

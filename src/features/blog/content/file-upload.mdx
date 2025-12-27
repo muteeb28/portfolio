@@ -1,0 +1,35 @@
+---
+title: File Upload
+description: A drag and drop file upload component with visual feedback.
+category: components
+icon: upload
+createdAt: 2025-12-27
+updatedAt: 2025-12-27
+---
+
+<ComponentPreview
+  name="file-upload-demo"
+  className="p-10"
+/>
+
+## Usage
+
+```tsx
+import { FileUpload } from "@/components/ui/file-upload";
+```
+
+```tsx
+export function FileUploadDemo() {
+  const [files, setFiles] = useState<File[]>([]);
+  const handleFileUpload = (files: File[]) => {
+    setFiles(files);
+    console.log(files);
+  };
+
+  return (
+    <div className="w-full max-w-4xl mx-auto min-h-96 border border-dashed bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 rounded-lg">
+      <FileUpload onChange={handleFileUpload} />
+    </div>
+  );
+}
+```

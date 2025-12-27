@@ -38,29 +38,52 @@ function getMDXData(dir: string) {
   });
 }
 
-export function getAllPosts() {
-  return getMDXData(path.join(process.cwd(), "src/features/blog/content")).sort(
-    (a, b) => {
-      if (a.metadata.pinned && !b.metadata.pinned) return -1;
-      if (!a.metadata.pinned && b.metadata.pinned) return 1;
+import { getHashnodePosts } from "@/lib/hashnode";
 
-      return (
-        new Date(b.metadata.createdAt).getTime() -
-        new Date(a.metadata.createdAt).getTime()
-      );
-    }
-  );
+export async function getAllPosts(): Promise<Post[]> {
+  const hashnodePosts = await getHashnodePosts();
+
+  // Fetch local MDX posts (mostly for components documentation)
+  const localContentDir = path.join(process.cwd(), "src/features/blog/content");
+  const localPosts = getMDXData(localContentDir);
+
+  const allPosts = [...localPosts, ...hashnodePosts];
+
+  if (allPosts.length === 0) {
+    return [
+      {
+        slug: "hashnode-profile",
+        content: "",
+        metadata: {
+          title: "Visit my Tech Blog on Hashnode",
+          description: "I write about Fullstack Development, System Design, and my journey as a developer.",
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          image: "https://cdn.hashnode.com/res/hashnode/image/upload/v1611242318625/p_1x3W2-W.png?auto=compress,format&format=webp",
+          externalUrl: "https://muteeb.hashnode.dev/",
+          pinned: true,
+        },
+      },
+    ];
+  }
+
+  // Sort by date desc
+  return allPosts.sort((a, b) => {
+    return new Date(b.metadata.createdAt).getTime() - new Date(a.metadata.createdAt).getTime();
+  });
 }
 
-export function getPostBySlug(slug: string) {
-  return getAllPosts().find((post) => post.slug === slug);
+export async function getPostBySlug(slug: string) {
+  const posts = await getAllPosts();
+  return posts.find((post: Post) => post.slug === slug);
 }
 
-export function getPostsByCategory(category: string) {
-  return getAllPosts().filter((post) => post.metadata?.category === category);
+export async function getPostsByCategory(category: string) {
+  const posts = await getAllPosts();
+  return posts.filter((post: Post) => post.metadata?.category === category);
 }
 
-export function findNeighbour(posts: Post[], slug: string) {
+export async function findNeighbour(posts: Post[], slug: string) {
   const len = posts.length;
 
   for (let i = 0; i < len; ++i) {
